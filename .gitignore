@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+<<<<<<< HEAD
+*.log
+.DS_Store
+coverage/
+=======
+__pycache__/
+*.log
+.DS_Store
+coverage/
+.nyc_output/
+>>>>>>> pr-2-snarf1974-CDN
