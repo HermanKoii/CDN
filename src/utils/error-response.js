@@ -37,16 +37,14 @@ const ERROR_TYPES = {
  * @returns {Object} HTTP response with error details
  */
 export function createErrorResponse(res, type, customMessage, additionalDetails = {}) {
-  // Validate input
-  if (!ERROR_TYPES[type]) {
-    type = 'INTERNAL_SERVER_ERROR';
-  }
-
-  const { status, message } = ERROR_TYPES[type];
+  // Validate input and default to INTERNAL_SERVER_ERROR if type is invalid
+  const errorType = ERROR_TYPES[type] ? type : 'INTERNAL_SERVER_ERROR';
+  
+  const { status, message } = ERROR_TYPES[errorType];
   
   return res.status(status).json({
     error: {
-      type,
+      type: errorType,
       message: customMessage || message,
       ...additionalDetails
     }
