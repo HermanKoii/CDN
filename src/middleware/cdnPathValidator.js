@@ -4,6 +4,9 @@ import cdnConfig from '../config/cdn.js';
 /**
  * Middleware to validate CDN file paths
  * Prevents directory traversal and ensures files are served only from the CDN directory
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @param {Function} next - Express next middleware function
  */
 const cdnPathValidator = (req, res, next) => {
   const requestedFilePath = req.path;
