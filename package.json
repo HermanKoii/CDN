@@ -1,16 +1,17 @@
 {
   "name": "cdn-file-server",
   "version": "1.0.0",
-  "description": "Secure CDN file serving application",
+  "description": "Secure CDN file serving application", 
   "type": "module",
   "main": "src/index.js",
   "scripts": {
     "test": "vitest run"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-rate-limit": "^7.5.0"
   },
   "devDependencies": {
-    "vitest": "^1.0.0"
+    "vitest": "^3.2.3"
   }
 }
