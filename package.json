@@ -5,9 +5,8 @@
   "type": "module",
   "main": "dist/fileErrorHandler.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "build": "tsc"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
   },
   "dependencies": {
     "express": "^4.18.2"
@@ -23,6 +22,7 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
+    "extensionsToTreatAsEsm": [".ts"],
     "transform": {
       "^.+\\.tsx?$": [
         "ts-jest",
@@ -31,15 +31,11 @@
         }
       ]
     },
+    "transformIgnorePatterns": [
+      "node_modules/(?!@babel/runtime)"
+    ],
     "moduleNameMapper": {
       "^(\\.{1,2}/.*)\\.js$": "$1"
-    },
-    "extensionsToTreatAsEsm": [
-      ".ts"
-    ],
-    "testMatch": [
-      "**/test/**/*.test.js",
-      "**/tests/**/*.test.ts"
-    ]
+    }
   }
 }
