@@ -1,6 +1,6 @@
 {
   "name": "cdn-file-service",
-  "version": "1.0.0", 
+  "version": "1.0.0",
   "description": "CDN file error handling module",
   "type": "module",
   "main": "dist/fileErrorHandler.js",

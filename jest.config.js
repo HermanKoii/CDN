@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
@@ -7,4 +9,6 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testMatch: ['**/*.test.js', '**/*.test.ts'],
+  roots: ['<rootDir>'],
+  modulePaths: ['<rootDir>'],
 };
