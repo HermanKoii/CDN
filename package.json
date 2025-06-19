@@ -1,12 +1,13 @@
 {
   "name": "cdn-file-service",
-  "version": "1.0.0",
+  "version": "1.0.0", 
   "description": "CDN file error handling module",
-  "type": "module",
+  "type": "commonjs",
   "main": "dist/fileErrorHandler.js",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "build": "tsc"
   },
   "dependencies": {
     "express": "^4.18.2"
