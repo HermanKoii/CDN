@@ -5,7 +5,7 @@
   "type": "module",
   "main": "dist/fileErrorHandler.js",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config={\"testEnvironment\":\"node\",\"transform\":{\"^.+\\\\.ts$\":[\"ts-jest\",{\"useESM\":true}]},\"extensionsToTreatAsEsm\":[\"test\"],\"moduleNameMapper\":{\"^(\\\\.{1,2}/.*)\\\\.js$\":\"$1\"}}",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
   },
   "dependencies": {
@@ -18,22 +18,5 @@
     "jest": "^30.0.2",
     "ts-jest": "^29.1.2",
     "typescript": "^4.9.5"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.ts$": [
-        "ts-jest",
-        {
-          "useESM": true
-        }
-      ]
-    },
-    "extensionsToTreatAsEsm": [
-      ".ts"
-    ],
-    "moduleNameMapper": {
-      "^(\\.{1,2}/.*)\\.js$": "$1"
-    },
-    "testEnvironment": "node"
   }
 }
