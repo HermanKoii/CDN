@@ -26,13 +26,17 @@
     "transform": {
       "^.+\\.tsx?$": [
         "ts-jest",
-        { "useESM": true }
+        {
+          "useESM": true
+        }
       ]
     },
     "moduleNameMapper": {
       "^(\\.{1,2}/.*)\\.js$": "$1"
     },
-    "extensionsToTreatAsEsm": [".ts"],
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
     "testMatch": [
       "**/test/**/*.test.js",
       "**/tests/**/*.test.ts"

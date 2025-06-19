@@ -1,2 +1,1 @@
-// Config moved to package.json
-export default {};
+// Intentionally left empty
