@@ -3,7 +3,7 @@ import * as fs from 'fs/promises';
 /**
  * Custom error class for file access and permission errors
  */
-export class FileAccessError extends Error {
+class FileAccessError extends Error {
   constructor(message: string) {
     super(message);
     this.name = 'FileAccessError';
@@ -15,7 +15,7 @@ export class FileAccessError extends Error {
  * @param filePath Path to the file to check
  * @throws {FileAccessError} If file cannot be accessed
  */
-export const checkFileAccess = async (filePath: string) => {
+const checkFileAccess = async (filePath: string) => {
   try {
     // Attempt to access file metadata
     await fs.access(filePath);
