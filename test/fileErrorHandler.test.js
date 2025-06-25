@@ -2,9 +2,14 @@ const fs = require('fs/promises');
 const { checkFileAccess, FileAccessError } = require('../src/fileErrorHandler');
 
 describe('File Error Handling', () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   it('should throw FileAccessError when file cannot be accessed', async () => {
     // Mock fs.access to simulate permission denied
     jest.spyOn(fs, 'access').mockRejectedValue(new Error('Permission denied'));
+    jest.spyOn(fs, 'stat').mockRejectedValue(new Error('Cannot stat'));
     
     await expect(checkFileAccess('/path/to/nonexistent/file')).rejects.toThrow(FileAccessError);
   });
@@ -20,6 +25,7 @@ describe('File Error Handling', () => {
   it('should handle unknown errors during file access', async () => {
     // Simulate an unknown error
     jest.spyOn(fs, 'access').mockRejectedValue(new Error());
+    jest.spyOn(fs, 'stat').mockRejectedValue(new Error());
     
     await expect(checkFileAccess('/path/to/file')).rejects.toThrow(FileAccessError);
   });
