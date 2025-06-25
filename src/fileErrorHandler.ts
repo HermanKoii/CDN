@@ -1,5 +1,5 @@
+import * as fs from 'fs/promises';
 import { Request, Response, NextFunction } from 'express';
-import fs from 'fs/promises';
 
 /**
  * Custom error class for file access and permission errors
@@ -47,7 +47,7 @@ export const fileErrorHandler = (
  * @param filePath Path to the file to check
  * @throws {FileAccessError} If file cannot be accessed
  */
-export const checkFileAccess = async (filePath: string) => {
+export const checkFileAccess = async (filePath: string): Promise<void> => {
   try {
     // Attempt to access file metadata
     await fs.access(filePath);
@@ -59,4 +59,11 @@ export const checkFileAccess = async (filePath: string) => {
     }
     throw new FileAccessError('Unknown file access error');
   }
+};
+
+// Export for CommonJS compatibility
+module.exports = {
+  FileAccessError,
+  fileErrorHandler,
+  checkFileAccess
 };
