@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .env
+<<<<<<< HEAD
 __pycache__/
 *.log
 .DS_Store
@@ -10,3 +11,9 @@ __pycache__/
 build/
 *.apk
 *.class
+=======
+.vscode/
+*.log
+.DS_Store
+coverage/
+>>>>>>> pr-2-pdneves-CDN
