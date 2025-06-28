@@ -15,7 +15,7 @@ describe('File Error Handling', () => {
 
   it('should successfully check file access when file exists', async () => {
     // Create mock for successful file access
-    jest.spyOn(fs, 'access').mockResolvedValue(undefined);
+    jest.spyOn(fs, 'access').mockResolvedValue();
     jest.spyOn(fs, 'stat').mockResolvedValue({} as any);
 
     await expect(checkFileAccess('/path/to/valid/file')).resolves.not.toThrow();
